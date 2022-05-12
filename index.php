@@ -77,16 +77,16 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC); // Butun bazani cekirik
 
                         <b> Musteri Eklenmesinde Bir Hata Olustu  </b>
                     </div>
-            <?php
+                    <?php
+                }
+                //  islem tamamlandiqdan sonra refresh edib index.php e geri gelsin
+                header("Refresh:2 url=index.php");
             }
-            //  islem tamamlandiqdan sonra refresh edib index.php e geri gelsin
-                header("Refresh:2 url=index.php");  
-            } 
             if (isset($_GET['dstatus'])) {
 
 //            $_GET  'dstatus' == "ok" a esitse
-                
-          if ($_GET['dstatus'] == "ok") {
+
+                if ($_GET['dstatus'] == "ok") {
                     ?>
                     <div class="alert alert-success">
 
@@ -105,14 +105,14 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC); // Butun bazani cekirik
                     </div>
                     <?php
                 }  //  islem tamamlandiqdan sonra refresh edib index.php e geri gelsin
-                header("Refresh:2 url=index.php");  
+                header("Refresh:2 url=index.php");
             }
-            
+
             if (isset($_GET['gstatus'])) {
 
 //            $_GET  'gstatus' == "ok" a esitse
-                
-          if ($_GET['dstatus'] == "ok") {
+
+                if ($_GET['gstatus'] == "ok") {
                     ?>
                     <div class="alert alert-success">
 
@@ -131,7 +131,7 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC); // Butun bazani cekirik
                     </div>
                     <?php
                 }  //  islem tamamlandiqdan sonra refresh edib index.php e geri gelsin
-                header("Refresh:2 url=index.php");  
+                header("Refresh:2 url=index.php");
             }
             ?>
 
@@ -155,8 +155,8 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC); // Butun bazani cekirik
                             <td> <?php echo $datas['musteri_soyad']; ?> </td>
                             <td> <?php echo $datas['musteri_numara']; ?> </td>
                             <td>
-                                 <!-- guncelle duymesini basanda guncellesayfa.php ye getmesi -->
-                                 <!-- ucun <a> taginin icinde href="" istifade edirik -->
+                                <!-- guncelle duymesini basanda guncellesayfa.php ye getmesi -->
+                                <!-- ucun <a> taginin icinde href="" istifade edirik -->
 
                                 <a class="btn btn-success" href="guncellesayfa.php?id=<?php echo $datas['id']; ?>"> <i class="fa-solid fa-pen"></i> </a>
                                 <!-- sil duymesini basanda sil.php ye getmesi -->
