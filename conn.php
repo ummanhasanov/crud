@@ -1,7 +1,7 @@
 <?php
 
 try {
-    $db = new PDO("mysql::host=localhost;dbname=performans_db;charset=UTF8","root","");
+    $db = new PDO("mysql::host=localhost;dbname=crud;charset=UTF8","root","");
 } catch (PDOException $e) {
     echo $e->getMessage();
 }
