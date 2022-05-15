@@ -15,10 +15,10 @@ if(isset($_POST['musteri_ekle'])){
     $count = $query->rowCount();
     
     if($count > 0) {
-        header("Location: ../index.php?status=ok");
+        header("Location: ../read.php?status=ok");
     } 
  else {
-    header("Location: ../index.php?status=no");    
+    header("Location: ../read.php?status=no");    
     }
     exit;
 }
@@ -27,4 +27,5 @@ if(isset($_POST['musteri_ekle'])){
 ?>
 
  
+
 

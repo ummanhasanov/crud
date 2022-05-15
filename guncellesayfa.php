@@ -5,6 +5,10 @@ $id = $_GET['id'];
 $sql = "SELECT * FROM musteriler"; // ikinci cedvelde database
 $query = $db->query($sql);  //  de yaddasda olanlara baxmaq ucun
 $data = $query->fetch(PDO::FETCH_ASSOC); //Bazadan bir verini yenileyirik
+
+
+session_start();
+
 ?>
 
 

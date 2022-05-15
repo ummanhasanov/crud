@@ -21,9 +21,9 @@ if (isset($_POST['musteri_guncelle'])) {
     $count = $query->rowCount();
 
 if ($count > 0) {
-    header("Location: ../index.php?gstatus=ok");
+    header("Location: ../read.php?gstatus=ok");
 } else {
-    header("Location: ../index.php?gstatus=no");
+    header("Location: ../read.php?gstatus=no");
 }
 exit;
     
