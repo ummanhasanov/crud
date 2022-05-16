@@ -15,19 +15,17 @@ if (isset($_POST['musteri_guncelle'])) {
 
     $query = $db->prepare($sql);
     $query->execute(array(
-    $musteri_ad, $musteri_soyad, $musteri_numara
+        $musteri_ad, $musteri_soyad, $musteri_numara
     ));
-    
+
     $count = $query->rowCount();
 
-if ($count > 0) {
-    header("Location: ../read.php?gstatus=ok");
-} else {
-    header("Location: ../read.php?gstatus=no");
-}
-exit;
-    
-    
+    if ($count > 0) {
+        header("Location: ../index.php?gstatus=ok");
+    } else {
+        header("Location: ../index.php?gstatus=no");
+    }
+    exit;
 }
 
 

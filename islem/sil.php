@@ -13,9 +13,9 @@ $query = $db->query($sql);
 $count = $query->rowCount();
 
 if ($count > 0) {
-    header("Location: ../read.php?dstatus=ok");
+    header("Location: ../index.php?dstatus=ok");
 } else {
-    header("Location: ../read.php?dstatus=no");
+    header("Location: ../index.php?dstatus=no");
 }
 exit;
 
