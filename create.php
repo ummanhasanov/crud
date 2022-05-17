@@ -1,4 +1,5 @@
 <?php
+
 include ("conn.php");
 
 if (isset($_GET['page'])) {
@@ -32,7 +33,6 @@ $pageCount = ceil($say / 10);
 //}
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -42,9 +42,7 @@ $pageCount = ceil($say / 10);
         <style>
             table, tr, td, th, thead, h4 {
                 text-align: center;
-                vertical-align: center;
-            }
-
+             }
         </style>
         <!-- font awesome scripti -->
         <script src="https://kit.fontawesome.com/49b70e1494.js" crossorigin="anonymous"></script>
@@ -52,6 +50,7 @@ $pageCount = ceil($say / 10);
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     </head>
     <body>
+        <br><br><br>
         <div class="container" >
             <h4> Musteri ekle </h4>
             <hr> 
@@ -73,9 +72,7 @@ $pageCount = ceil($say / 10);
                         <td colspan="3"> </td><td><input type="submit" name="musteri_ekle" class="btn btn-success" > </td>
                     </tr>
                 </table>
-
             </form>
-
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
