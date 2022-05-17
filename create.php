@@ -54,11 +54,10 @@ $pageCount = ceil($say / 10);
         <div class="container" >
             <h4> Musteri ekle </h4>
             <hr> 
-            <div class="sticky-top" >
-            </div>
+          
             <form action="islem/insert.php" method="POST">
                 <table class="table">
-                    <tr><td colspan="3"> </td><td> <a align="left" class="btn btn-dark" href="index.php"><i class="fa-solid fa-eye"></i> HOME </a> </td></tr>
+                <td colspan="3"> </td><td> <a align="left" class="btn btn-info" href="index.php"><i class="fa-solid fa-eye"></i> HOME </a> </td>
                     <tr>
                         <td> User Name :</td><td><input type="text" name="musteri_ad" class="form-control"></td>  
                     </tr>

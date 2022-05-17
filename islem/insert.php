@@ -2,9 +2,25 @@
 
 include ("../conn.php");
 
-session_start();
-//var_dump($_SESSION);
+$sql = "SELECT COUNT(*) FROM musteriler ";
+
+$query = $db->query($sql);
+$row = $query->fetchColumn();
+
+//var_dump($row);
+//die; //    yoxlamaq ucun 
+
+$pageCount = ceil($row / 10);
+
+if (($pageCount % 10) == 1) {
+    $pageCount + 1;
+}
+
+$last = $pageCount;
+
+//var_dump($last);
 //die();
+
 if (isset($_POST['musteri_ekle'])) {
     $musteri_ad = $_POST['musteri_ad'];
     $musteri_soyad = $_POST['musteri_soyad'];
@@ -19,17 +35,13 @@ if (isset($_POST['musteri_ekle'])) {
     $count = $query->rowCount();
 
     if ($count > 0) {
-        if ($_SESSION['back_page']) {
-            header("Location: ../index.php?page=" . $_SESSION['back_page'] . "&status=ok");
-        } else {
-            header("Location: ../index.php?status=ok");
-        }
+
+        header("Location: ../index.php?page=" . $last . "&status=ok");
     } else {
-        header("Location: ../index.php?status=no");
+        header("Location: ../index.php?status=ok");
     }
-    exit;
+} else {
+    header("Location: ../index.php?status=no");
 }
-
- 
-
+exit;
 

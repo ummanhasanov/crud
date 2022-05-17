@@ -2,6 +2,7 @@
 
 include ("../conn.php");
 
+session_start();
 // GET den gelen id 
 $id = $_GET['id'];
 
@@ -13,9 +14,12 @@ $query = $db->query($sql);
 $count = $query->rowCount();
 
 if ($count > 0) {
-    header("Location: ../index.php?dstatus=ok");
+    if ($_SESSION['back_page']) {
+        header("Location: ../index.php?page=" . $_SESSION['back_page'] . "&dstatus=ok");
+    } else {
+        header("Location: ../index.php?dstatus=ok");
+    }
 } else {
     header("Location: ../index.php?dstatus=no");
 }
 exit;
-

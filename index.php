@@ -26,10 +26,13 @@ $sql = "SELECT COUNT(*) FROM musteriler ";
 $query = $db->query($sql);
 $row = $query->fetchColumn();
 
-//var_dump($say);
+//var_dump($row);
 //die; //    yoxlamaq ucun 
 
 $pageCount = ceil($row / 10);
+
+//var_dump($page);
+//
 ?>
 
 <!DOCTYPE html>
@@ -109,31 +112,31 @@ $pageCount = ceil($row / 10);
         <!-- musteri siralamasina baxmaq ucun -->
         <br><br><br>
         <div class="container">
+
             <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">User Name</th>
-                        <th scope="col">User Surname</th>
-                        <th scope="col">Phone number</th>
-                        <th scope="col">Action</th>
-                    </tr>
+                <thead>  <td colspan="4"> </td><td> <a class="btn btn-primary" href="create.php" style="text-align: end"> <i class="fa-solid fa-circle-plus"></i> New User </a> </td>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">User Name</th>
+                    <th scope="col">User Surname</th>
+                    <th scope="col">Phone number</th>
+                    <th scope="col">Action</th>
+                </tr>
                 </thead>
                 <tbody>
-                <td colspan="4"> </td><td> <a class="btn btn-dark" href="create.php" style="text-align: end"> <i class="fa-solid fa-circle-plus"></i> New User </a> </td>
 
-                <?php foreach ($data as $datas) : ?>
-                    <tr>
-                        <td> <?php echo $datas['id']; ?> </td>
-                        <td> <?php echo $datas['musteri_ad']; ?> </td>
-                        <td> <?php echo $datas['musteri_soyad']; ?> </td>
-                        <td> <?php echo $datas['musteri_numara']; ?> </td>
-                        <td>
-                            <a class="btn btn-success" href="guncellesayfa.php?id=<?php echo $datas['id']; ?>"> <i class="fa-solid fa-pen"></i> </a>
-                            <a class="btn btn-danger" href="islem/sil.php?id=<?php echo $datas['id']; ?>" onclick="return confirm('Eminsinizmi?')"> <i class="fa-solid fa-trash"></i> </a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
+                    <?php foreach ($data as $datas) : ?>
+                        <tr>
+                            <td> <?php echo $datas['id']; ?> </td>
+                            <td> <?php echo $datas['musteri_ad']; ?> </td>
+                            <td> <?php echo $datas['musteri_soyad']; ?> </td>
+                            <td> <?php echo $datas['musteri_numara']; ?> </td>
+                            <td>
+                                <a class="btn btn-success" href="guncellesayfa.php?id=<?php echo $datas['id']; ?>"> <i class="fa-solid fa-pen"></i> </a>
+                                <a class="btn btn-danger" href="islem/sil.php?id=<?php echo $datas['id']; ?>" onclick="return confirm('Eminsinizmi?')"> <i class="fa-solid fa-trash"></i> </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
 
@@ -144,13 +147,13 @@ $pageCount = ceil($row / 10);
                         echo 'disabled';
                     }
                     ?>"><a class="page-link" href="/phpcrud/index.php?page=<?= $page - 1 ?>">Previous</a></li>
-                    <?php for ($i = 1; $i <= $pageCount; $i++) { ?>
+                        <?php for ($i = 1; $i <= $pageCount; $i++) { ?>
                         <li class="page-item <?php
                         if ($page == $i) {
                             echo 'active';
                         }
                         ?>"><a class="page-link" href="/phpcrud/index.php?page=<?= $i ?>"> <?= $i ?> </a></li>
-                    <?php } ?>
+                        <?php } ?>
                     <li class="page-item <?php
                     if ($page >= $pageCount) {
                         echo "disabled";

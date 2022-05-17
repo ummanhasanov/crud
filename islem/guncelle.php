@@ -2,6 +2,8 @@
 
 include ("../conn.php");
 
+session_start();
+
 if (isset($_POST['musteri_guncelle'])) {
 
     $id = $_GET['id'];
@@ -21,11 +23,17 @@ if (isset($_POST['musteri_guncelle'])) {
     $count = $query->rowCount();
 
     if ($count > 0) {
-        header("Location: ../index.php?gstatus=ok");
+            if ($_SESSION['back_page']) {
+            header("Location: ../index.php?page=" . $_SESSION['back_page'] . "&gstatus=ok");
+        } else {
+            header("Location: ../index.php?gstatus=ok");
+        }
     } else {
         header("Location: ../index.php?gstatus=no");
     }
     exit;
 }
+
+ 
 
 
