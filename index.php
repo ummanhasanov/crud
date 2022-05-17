@@ -24,12 +24,12 @@ $data = $query->fetchAll(PDO::FETCH_ASSOC); // Butun bazani cekirik
 $sql = "SELECT COUNT(*) FROM musteriler ";
 
 $query = $db->query($sql);
-$say = $query->fetchColumn();
+$row = $query->fetchColumn();
 
 //var_dump($say);
 //die; //    yoxlamaq ucun 
 
-$pageCount = ceil($say / 10);
+$pageCount = ceil($row / 10);
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +41,6 @@ $pageCount = ceil($say / 10);
         <style>
             table, tr, td, th, thead{
                 text-align: center;
-                vertical-align: center;
             }
         </style>
         <!-- font awesome scripti -->
