@@ -53,83 +53,62 @@ $pageCount = ceil($say / 10);
 
         <?php
         if (isset($_GET['status'])) {
-
-//              $_GET  'status' == "ok" a esitse 
             if ($_GET['status'] == "ok") {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show">
-
                     <b> Musteri Ekleme Basarili ! </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-
-
                 <?php
-//              $_GET  'status' == "no" a esitse 
             } if ($_GET['status'] == "no") {
                 ?>
-
-                <div class="alert alert-danger">
-
+                <div class="alert alert-danger alert-dismissible fade show">
                     <b> Musteri Eklenmesinde Bir Hata Olustu  </b>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
             }
         }
 
         if (isset($_GET['dstatus'])) {
-
-//              $_GET  'dstatus' == "ok" a esitse
-
             if ($_GET['dstatus'] == "ok") {
                 ?>
-                <div class="alert alert-success">
-
+                <div class="alert alert-success alert-dismissible fade show">
                     <b> Musteri Silme Islemi Basarili ! </b>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-
-
                 <?php
-//              $_GET  'dstatus' == "no" a esitse 
             } if ($_GET['dstatus'] == "no") {
                 ?>
-
-                <div class="alert alert-danger">
-
+                <div class="alert alert-danger alert-dismissible fade show">
                     <b> Musteri Silinirken Bir Hata Olustu  </b>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
             }
         }
 
         if (isset($_GET['gstatus'])) {
-
-//              $_GET  'gstatus' == "ok" a esitse
-
             if ($_GET['gstatus'] == "ok") {
                 ?>
-                <div class="alert alert-success">
-
+                <div class="alert alert-success alert-dismissible fade show">
                     <b> Musteri Guncelleme Islemi Basarili ! </b>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
-
-
                 <?php
-//              $_GET  'gstatus' == "no" a esitse 
             } if ($_GET['gstatus'] == "no") {
                 ?>
-
-                <div class="alert alert-danger">
-
+                <div class="alert alert-danger alert-dismissible fade show">
                     <b> Musteri Guncellenirken Bir Hata Olustu  </b>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
             }
         }
         ?>
 
-        <!-- musteri siralamasina baxmaq ucun table -->
-
+        <!-- musteri siralamasina baxmaq ucun -->
+        <br><br><br>
         <div class="container">
             <table class="table">
                 <thead>
@@ -151,47 +130,34 @@ $pageCount = ceil($say / 10);
                         <td> <?php echo $datas['musteri_soyad']; ?> </td>
                         <td> <?php echo $datas['musteri_numara']; ?> </td>
                         <td>
-                            <!-- guncelle duymesini basanda guncellesayfa.php ye getmesi -->
-                            <!-- ucun <a> taginin icinde href="" istifade edirik -->
-
                             <a class="btn btn-success" href="guncellesayfa.php?id=<?php echo $datas['id']; ?>"> <i class="fa-solid fa-pen"></i> </a>
-                            <!-- sil duymesini basanda sil.php ye getmesi -->
-                            <!-- ucun <a> taginin icinde href="" istifade edirik -->
                             <a class="btn btn-danger" href="islem/sil.php?id=<?php echo $datas['id']; ?>" onclick="return confirm('Eminsinizmi?')"> <i class="fa-solid fa-trash"></i> </a>
                         </td>
-
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
             </table>
 
-
             <nav class="d-flex justify-content-center" aria-label="Page navigation example">
                 <ul class="pagination">
-
                     <li class="page-item <?php
                     if ($page <= 1) {
                         echo 'disabled';
                     }
                     ?>"><a class="page-link" href="/phpcrud/index.php?page=<?= $page - 1 ?>">Previous</a></li>
-
                     <?php for ($i = 1; $i <= $pageCount; $i++) { ?>
-
                         <li class="page-item <?php
                         if ($page == $i) {
                             echo 'active';
                         }
                         ?>"><a class="page-link" href="/phpcrud/index.php?page=<?= $i ?>"> <?= $i ?> </a></li>
-
                     <?php } ?>
-
                     <li class="page-item <?php
                     if ($page >= $pageCount) {
                         echo "disabled";
                     }
                     ?>"><a class="page-link" href="/phpcrud/index.php?page=<?= $page + 1 ?>">Next</a></li>
                 </ul>
-
             </nav>
         </div>
 
