@@ -10,11 +10,7 @@ $row = $query->fetchColumn();
 //var_dump($row);
 //die; //    yoxlamaq ucun 
 
-$pageCount = ceil($row / 10);
-
-if (($pageCount % 10) == 1) {
-    $pageCount + 1;
-}
+$pageCount = floor($row / 10) + 1;
 
 $last = $pageCount;
 
