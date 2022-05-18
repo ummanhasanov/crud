@@ -21,7 +21,7 @@ if (isset($_POST['musteri_ekle'])) {
 //var_dump($row);
 //die; //    yoxlamaq ucun 
 
-    $pageCount = floor($row / 10) + 1;
+    $pageCount = ceil($row / 10) ;
 
     $last = $pageCount;
 
