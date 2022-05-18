@@ -2,21 +2,6 @@
 
 include ("../conn.php");
 
-$sql = "SELECT COUNT(*) FROM musteriler ";
-
-$query = $db->query($sql);
-$row = $query->fetchColumn();
-
-//var_dump($row);
-//die; //    yoxlamaq ucun 
-
-$pageCount = floor($row / 10) + 1;
-
-$last = $pageCount;
-
-//var_dump($last);
-//die();
-
 if (isset($_POST['musteri_ekle'])) {
     $musteri_ad = $_POST['musteri_ad'];
     $musteri_soyad = $_POST['musteri_soyad'];
@@ -28,6 +13,20 @@ if (isset($_POST['musteri_ekle'])) {
     $query = $db->prepare($sql);
     $query->execute();
 
+    $sql = "SELECT COUNT(*) FROM musteriler ";
+
+    $query = $db->query($sql);
+    $row = $query->fetchColumn();
+
+//var_dump($row);
+//die; //    yoxlamaq ucun 
+
+    $pageCount = floor($row / 10) + 1;
+
+    $last = $pageCount;
+
+//var_dump($last);
+//die();
     $count = $query->rowCount();
 
     if ($count > 0) {
