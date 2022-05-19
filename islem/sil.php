@@ -14,12 +14,15 @@ $query = $db->query($sql);
 $count = $query->rowCount();
 
 if ($count > 0) {
-    if ($_SESSION['back_page']) {
-        header("Location: ../index.php?page=" . $_SESSION['back_page'] . "&dstatus=ok");
+    if ($_SESSION['back_page'] || $_SESSION['dstatus']) {
+         $_SESSION['dstatus'] = 'ok';
+        header("Location: ../index.php?page=" . $_SESSION['back_page']);
     } else {
-        header("Location: ../index.php?dstatus=ok");
+        $_SESSION['dstatus'] = 'ok';
+        header("Location: ../index.php");
     }
 } else {
-    header("Location: ../index.php?dstatus=no");
+    $_SESSION['dstatus'] = 'no';
+    header("Location: ../index.php");
 }
 exit;

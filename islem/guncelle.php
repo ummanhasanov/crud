@@ -13,22 +13,26 @@ if (isset($_POST['musteri_guncelle'])) {
 
     $sql = "UPDATE musteriler SET musteri_ad = ?, musteri_soyad = ?, musteri_numara = ? WHERE id = '$id'";
 
-   //           database baglan bunu hazirla ve
+//           database baglan bunu hazirla ve
 
     $query = $db->prepare($sql);
-    $query->execute(array( $musteri_ad, $musteri_soyad, $musteri_numarasi
+    $query->execute(array($musteri_ad, $musteri_soyad, $musteri_numarasi
     ));
 
     $count = $query->rowCount();
 
     if ($count > 0) {
-        if ($_SESSION['back_page']) {
-            header("Location: ../index.php?page=" . $_SESSION['back_page'] . "&gstatus=ok");
+        if ($_SESSION['back_page'] || $_SESSION['gstatus']) {
+            $_SESSION['gstatus'] = 'ok';
+            header("Location: ../index.php?page=" . $_SESSION['back_page']);
         } else {
-            header("Location: ../index.php?gstatus=ok");
+            $_SESSION['gstatus'] = 'ok';
+
+            header("Location: ../index.php");
         }
     } else {
-        header("Location: ../index.php?gstatus=no");
+        $_SESSION['gstatus'] = 'no';
+        header("Location: ../index.php");
     }
     exit;
 }

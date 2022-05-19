@@ -54,15 +54,15 @@ $pageCount = ceil($row / 10);
     <body> 
 
         <?php
-        if (isset($_GET['status'])) {
-            if ($_GET['status'] == "ok") {
+        if (isset($_SESSION['status'])) {
+            if ($_SESSION['status'] == "ok") {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show">
                     <b> Musteri Ekleme Basarili ! </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
-            } if ($_GET['status'] == "no") {
+            } if ($_SESSION['status'] == "no") {
                 ?>
                 <div class="alert alert-danger alert-dismissible fade show">
                     <b> Musteri Eklenmesinde Bir Hata Olustu  </b>
@@ -70,17 +70,18 @@ $pageCount = ceil($row / 10);
                 </div>
                 <?php
             }
+            unset($_SESSION['status']);
         }
 
-        if (isset($_GET['dstatus'])) {
-            if ($_GET['dstatus'] == "ok") {
+        if (isset($_SESSION['dstatus'])) {
+            if ($_SESSION['dstatus'] == "ok") {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show">
                     <b> Musteri Silme Islemi Basarili ! </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
-            } if ($_GET['dstatus'] == "no") {
+            } if ($_SESSION['dstatus'] == "no") {
                 ?>
                 <div class="alert alert-danger alert-dismissible fade show">
                     <b> Musteri Silinirken Bir Hata Olustu  </b>
@@ -88,17 +89,18 @@ $pageCount = ceil($row / 10);
                 </div>
                 <?php
             }
+              unset($_SESSION['dstatus']);
         }
 
-        if (isset($_GET['gstatus'])) {
-            if ($_GET['gstatus'] == "ok") {
+        if (isset($_SESSION['gstatus'])) {
+            if ($_SESSION['gstatus'] == "ok") {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show">
                     <b> Musteri Guncelleme Islemi Basarili ! </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
-            } if ($_GET['gstatus'] == "no") {
+            } if ($_SESSION['gstatus'] == "no") {
                 ?>
                 <div class="alert alert-danger alert-dismissible fade show">
                     <b> Musteri Guncellenirken Bir Hata Olustu  </b>
@@ -106,6 +108,7 @@ $pageCount = ceil($row / 10);
                 </div>
                 <?php
             }
+              unset($_SESSION['gstatus']);
         }
         ?>
 

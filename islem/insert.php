@@ -1,7 +1,7 @@
 <?php
 
 include ("../conn.php");
-
+session_start();
 if (isset($_POST['musteri_ekle'])) {
     $musteri_ad = $_POST['musteri_ad'];
     $musteri_soyad = $_POST['musteri_soyad'];
@@ -21,7 +21,7 @@ if (isset($_POST['musteri_ekle'])) {
 //var_dump($row);
 //die; //    yoxlamaq ucun 
 
-    $pageCount = ceil($row / 10) ;
+    $pageCount = ceil($row / 10);
 
     $last = $pageCount;
 
@@ -30,13 +30,15 @@ if (isset($_POST['musteri_ekle'])) {
     $count = $query->rowCount();
 
     if ($count > 0) {
-
-        header("Location: ../index.php?page=" . $last . "&status=ok");
+        $_SESSION ['status'] = 'ok';
+        header("Location: ../index.php?page=" . $last);
     } else {
-        header("Location: ../index.php?status=ok");
+        $_SESSION ['status'] = 'ok';
+        header("Location: ../index.php");
     }
 } else {
-    header("Location: ../index.php?status=no");
+    $_SESSION ['status'] = 'no';
+    header("Location: ../index.php");
 }
 exit;
 
