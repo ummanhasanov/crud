@@ -35,13 +35,13 @@ $data = $query->fetch(PDO::FETCH_ASSOC); //Bazadan bir verini yenileyirik
             <form action="islem/guncelle.php?id=<?php echo $_GET['id']; ?>" method="POST">
                 <table class="table">
                     <tr>
-                        <td> Musteri adi :</td><td><input type="text" name="musteri_ad" class="form-control" required value="<?php echo $data['musteri_ad']; ?>" ></td>
+                        <td> Musteri adi :</td><td><input type="text" name="musteri_ad" class="form-control"pattern="[A-Za-z]+" required value="<?php echo $data['musteri_ad']; ?>" ></td>
                     </tr>
                     <tr>              
-                        <td> Musteri soyadi :</td> <td><input type="text" name="musteri_soyad" class="form-control" required value="<?php echo $data['musteri_soyad']; ?>"> </td>
+                        <td> Musteri soyadi :</td> <td><input type="text" name="musteri_soyad" class="form-control" pattern="[A-Za-z]+" required value="<?php echo $data['musteri_soyad']; ?>"> </td>
                     </tr>
                     <tr>
-                        <td> Musteri numarasi :</td> <td> <input type="text" name="musteri_numarasi" class="form-control" required value="<?php echo $data['musteri_numara']; ?>"> </td>
+                        <td> Musteri numarasi :</td> <td> <input type="text" name="musteri_numarasi" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value="<?php echo $data['musteri_numara']; ?>"> <small>Format: 123-456-7890</small></td>
                     </tr>
                     <tr>
                         <td colspan="3"> </td><td><input type="submit" name="musteri_guncelle" class="btn btn-success" value="Guncelle" > </td>
