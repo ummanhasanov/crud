@@ -11,7 +11,14 @@ if (isset($_POST['musteri_ekle'])) {
     $sql = "INSERT INTO musteriler (musteri_ad, musteri_soyad, musteri_numara) VALUES('$musteri_ad', '$musteri_soyad', '$musteri_numarasi')";
 
     $query = $db->prepare($sql);
-    $query->execute();
+    $result = $query->execute();
+
+    if (!$result) {
+        $_SESSION ['status'] = 'no';
+        header("Location: ../index.php");
+        exit;
+    }
+    
 
     $sql = "SELECT COUNT(*) FROM musteriler ";
 
