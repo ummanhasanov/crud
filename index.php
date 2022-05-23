@@ -117,7 +117,7 @@ $pageCount = ceil($row / 10);
         <div class="container">
 
             <table class="table">
-                <thead>  <td colspan="4"> </td><td> <a class="btn btn-primary" href="create.php" style="text-align: end"> <i class="fa-solid fa-circle-plus"></i> New User </a> </td>
+                <thead> <td colspan="4" > </td> <td> <a class="btn btn-primary" href="create.php" > <i class="fa-solid fa-circle-plus"></i> New User </a> </td>
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">User Name</th>
