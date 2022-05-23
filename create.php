@@ -52,10 +52,10 @@ $pageCount = ceil($say / 10);
     <body>
         <br><br><br>
         <div class="container" >
-            <h4> Add User </h4>
+            <h4 class="text-center my-3"> Add User </h4>
             <hr> 
 
-            <form action="islem/insert.php" method="POST">
+            <form action="islem/insert.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                 <table class="table">
                     <td colspan="3"> </td><td> <a align="left" class="btn btn-info" href="index.php"><i class="fa-solid fa-eye"></i> HOME </a> </td>
                     <tr>
@@ -66,6 +66,9 @@ $pageCount = ceil($say / 10);
                     </tr>
                     <tr>
                         <td> Phone number :</td> <td> <input type="tel" name="musteri_numarasi" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>Format: 123-456-7890</small> </td>
+                    </tr>
+                    <tr>
+                        <td> User Photo :</td> <td> <input type="file" accept=".jpg, .png, .gif, .svg" name="image" class="form-control"> </td>
                     </tr>
                     <tr>
                         <td colspan="3"> </td><td><input type="submit" name="musteri_ekle" class="btn btn-success" > </td>
