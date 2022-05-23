@@ -42,7 +42,7 @@ $pageCount = ceil($say / 10);
         <style>
             table, tr, td, th, thead, h4 {
                 text-align: center;
-             }
+            }
         </style>
         <!-- font awesome scripti -->
         <script src="https://kit.fontawesome.com/49b70e1494.js" crossorigin="anonymous"></script>
@@ -52,12 +52,12 @@ $pageCount = ceil($say / 10);
     <body>
         <br><br><br>
         <div class="container" >
-            <h4> Musteri ekle </h4>
+            <h4> Add User </h4>
             <hr> 
-          
+
             <form action="islem/insert.php" method="POST">
                 <table class="table">
-                <td colspan="3"> </td><td> <a align="left" class="btn btn-info" href="index.php"><i class="fa-solid fa-eye"></i> HOME </a> </td>
+                    <td colspan="3"> </td><td> <a align="left" class="btn btn-info" href="index.php"><i class="fa-solid fa-eye"></i> HOME </a> </td>
                     <tr>
                         <td> User Name :</td><td><input type="text" name="musteri_ad" class="form-control" pattern="[A-Za-z]+"></td>  
                     </tr>
