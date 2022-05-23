@@ -58,14 +58,14 @@ $pageCount = ceil($row / 10);
             if ($_SESSION['status'] == "ok") {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show">
-                    <b> Musteri Ekleme Basarili ! </b>
+                    <b> User added successful ! </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
             } if ($_SESSION['status'] == "no") {
                 ?>
                 <div class="alert alert-danger alert-dismissible fade show">
-                    <b> Musteri Eklenmesinde Bir Hata Olustu  </b>
+                    <b> User added unsuccessful !</b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -77,14 +77,14 @@ $pageCount = ceil($row / 10);
             if ($_SESSION['dstatus'] == "ok") {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show">
-                    <b> Musteri Silme Islemi Basarili ! </b>
+                    <b> User deleted successful ! </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
             } if ($_SESSION['dstatus'] == "no") {
                 ?>
                 <div class="alert alert-danger alert-dismissible fade show">
-                    <b> Musteri Silinirken Bir Hata Olustu  </b>
+                    <b>User deleted unsuccessful  </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -96,14 +96,14 @@ $pageCount = ceil($row / 10);
             if ($_SESSION['gstatus'] == "ok") {
                 ?>
                 <div class="alert alert-success alert-dismissible fade show">
-                    <b> Musteri Guncelleme Islemi Basarili ! </b>
+                    <b> User updated successful !  </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
             } if ($_SESSION['gstatus'] == "no") {
                 ?>
                 <div class="alert alert-danger alert-dismissible fade show">
-                    <b> Musteri Guncellenirken Bir Hata Olustu  </b>
+                    <b> User updated unsuccessful !  </b>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
                 <?php
@@ -136,7 +136,7 @@ $pageCount = ceil($row / 10);
                             <td> <?php echo $datas['musteri_numara']; ?> </td>
                             <td>
                                 <a class="btn btn-success" href="guncellesayfa.php?id=<?php echo $datas['id']; ?>"> <i class="fa-solid fa-pen"></i> </a>
-                                <a class="btn btn-danger" href="islem/sil.php?id=<?php echo $datas['id']; ?>" onclick="return confirm('Eminsinizmi?')"> <i class="fa-solid fa-trash"></i> </a>
+                                <a class="btn btn-danger" href="islem/sil.php?id=<?php echo $datas['id']; ?>" onclick="return confirm('Are you sure to delete this user?')"> <i class="fa-solid fa-trash"></i> </a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
