@@ -6,7 +6,7 @@ if (isset($_POST['musteri_ekle'])) {
     $musteri_ad = $_POST['musteri_ad'];
     $musteri_soyad = $_POST['musteri_soyad'];
     $musteri_numarasi = $_POST['musteri_numarasi'];
-
+        
 //     SQL qeydiyyat aparmaq ucun
     $sql = "INSERT INTO musteriler (musteri_ad, musteri_soyad, musteri_numara) VALUES('$musteri_ad', '$musteri_soyad', '$musteri_numarasi')";
 
@@ -18,7 +18,7 @@ if (isset($_POST['musteri_ekle'])) {
         header("Location: ../index.php");
         exit;
     }
-    
+
 
     $sql = "SELECT COUNT(*) FROM musteriler ";
 
