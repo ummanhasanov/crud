@@ -29,9 +29,9 @@ $data = $query->fetch(PDO::FETCH_ASSOC); //Bazadan bir verini yenileyirik
     <body>
         <br><br><br>
         <div class="container" >
-            <h4> Update User </h4>
+            <h4 class="text-center my-3"> Update User </h4>
             <hr> 
-            <form action="islem/guncelle.php?id=<?php echo $_GET['id']; ?>" method="POST">
+            <form action="islem/guncelle.php?id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data" autocomplete="off" >
                 <table class="table">
                     <tr>
                         <td> User Name :</td><td><input type="text" name="musteri_ad" class="form-control"pattern="[A-Za-z]+" required value="<?php echo $data['musteri_ad']; ?>" ></td>
@@ -41,6 +41,9 @@ $data = $query->fetch(PDO::FETCH_ASSOC); //Bazadan bir verini yenileyirik
                     </tr>
                     <tr>
                         <td> Phone number :</td> <td> <input type="text" name="musteri_numarasi" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value="<?php echo $data['musteri_numara']; ?>"> <small>Format: 123-456-7890</small></td>
+                    </tr>
+                     <tr>
+                        <td> User Photo :</td> <td> <input type="file" accept=".jpg, .png, .gif, .svg" name="image" class="form-control"> </td>
                     </tr>
                     <tr>
                         <td colspan="3"> </td><td><input type="submit" name="musteri_guncelle" class="btn btn-success" value="Update" > </td>
