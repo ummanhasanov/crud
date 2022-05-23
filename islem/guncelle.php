@@ -16,8 +16,7 @@ if (isset($_POST['musteri_guncelle'])) {
 //           database baglan bunu hazirla ve
 
     $query = $db->prepare($sql);
-    $query->execute(array($musteri_ad, $musteri_soyad, $musteri_numarasi
-    ));
+    $query->execute(array($musteri_ad, $musteri_soyad, $musteri_numarasi));
 
     $count = $query->rowCount();
 
