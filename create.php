@@ -59,13 +59,13 @@ $pageCount = ceil($say / 10);
                 <table class="table">
                     <td colspan="3"> </td><td> <a align="left" class="btn btn-info" href="index.php"><i class="fa-solid fa-eye"></i> HOME </a> </td>
                     <tr>
-                        <td> User Name :</td><td><input type="text" name="first_name" class="form-control" pattern="[A-Za-z]+" required></td>  
+                        <td> User Name :</td><td><input type="text" name="first_name" placeholder="User first name" class="form-control" pattern="[A-Za-z]+" required></td>  
                     </tr>
                     <tr>              
-                        <td> User Surname :</td> <td><input type="text" name="last_name" class="form-control" pattern="[A-Za-z]+" required> </td>
+                        <td> User Surname :</td> <td><input type="text" name="last_name" placeholder="User last name" class="form-control" pattern="[A-Za-z]+" required> </td>
                     </tr>
                     <tr>
-                        <td> Phone number :</td> <td> <input type="tel" name="phone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>Format: 123-456-7890</small> </td>
+                        <td> Phone number :</td> <td> <input type="tel" name="phone" placeholder="Mobile number" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>Format: 123-456-7890</small> </td>
                     </tr>
 <!--                    <tr>
                         <td> User Photo :</td> <td> <input type="file" accept=".jpg, .png, .gif, .svg" name="image" class="form-control"> </td>
