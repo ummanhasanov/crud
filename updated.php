@@ -3,7 +3,7 @@
 include ("conn.php");
 $id = $_GET['id'];
 //  Tablonu (cedveli) sec deyirik
-$sql = "SELECT * FROM musteriler WHERE id = '$id'"; // ikinci cedvelde database de
+$sql = "SELECT * FROM users WHERE id = '$id'"; // ikinci cedvelde database de
 $query = $db->query($sql);  //  id uzre yaddasda olanlara baxmaq ucun
 $data = $query->fetch(PDO::FETCH_ASSOC); //Bazadan bir verini yenileyirik
 ?>
@@ -31,22 +31,22 @@ $data = $query->fetch(PDO::FETCH_ASSOC); //Bazadan bir verini yenileyirik
         <div class="container" >
             <h4 class="text-center my-3"> Update User </h4>
             <hr> 
-            <form action="islem/guncelle.php?id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data" autocomplete="off" >
+            <form action="config/update.php?id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data" autocomplete="off" >
                 <table class="table">
                     <tr>
-                        <td> User Name :</td><td><input type="text" name="musteri_ad" class="form-control"pattern="[A-Za-z]+" required value="<?php echo $data['musteri_ad']; ?>" ></td>
+                        <td> User Name :</td><td><input type="text" name="first_name" class="form-control"pattern="[A-Za-z]+" required value="<?php echo $data['first_name']; ?>" ></td>
                     </tr>
                     <tr>              
-                        <td> User Surname :</td> <td><input type="text" name="musteri_soyad" class="form-control" pattern="[A-Za-z]+" required value="<?php echo $data['musteri_soyad']; ?>"> </td>
+                        <td> User Surname :</td> <td><input type="text" name="last_name" class="form-control" pattern="[A-Za-z]+" required value="<?php echo $data['last_name']; ?>"> </td>
                     </tr>
                     <tr>
-                        <td> Phone number :</td> <td> <input type="text" name="musteri_numarasi" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value="<?php echo $data['musteri_numara']; ?>"> <small>Format: 123-456-7890</small></td>
+                        <td> Phone number :</td> <td> <input type="text" name="phone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value="<?php echo $data['phone']; ?>"> <small>Format: 123-456-7890</small></td>
                     </tr>
                      <tr>
                         <td> User Photo :</td> <td> <input type="file" accept=".jpg, .png, .gif, .svg" name="image" class="form-control"> </td>
                     </tr>
                     <tr>
-                        <td colspan="3"> </td><td><input type="submit" name="musteri_guncelle" class="btn btn-success" value="Update" > </td>
+                        <td colspan="3"> </td><td><input type="submit" name="user_update" class="btn btn-success" value="Update" > </td>
                     </tr>
                 </table>
             </form>

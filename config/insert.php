@@ -2,13 +2,13 @@
 
 include ("../conn.php");
 session_start();
-if (isset($_POST['musteri_ekle'])) {
-    $musteri_ad = $_POST['musteri_ad'];
-    $musteri_soyad = $_POST['musteri_soyad'];
-    $musteri_numarasi = $_POST['musteri_numarasi'];
+if (isset($_POST['add_user'])) {
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $phone = $_POST['phone'];
         
 //     SQL qeydiyyat aparmaq ucun
-    $sql = "INSERT INTO musteriler (musteri_ad, musteri_soyad, musteri_numara) VALUES('$musteri_ad', '$musteri_soyad', '$musteri_numarasi')";
+    $sql = "INSERT INTO users (first_name, last_name, phone) VALUES('$first_name', '$last_name', '$phone')";
 
     $query = $db->prepare($sql);
     $result = $query->execute();
@@ -20,7 +20,7 @@ if (isset($_POST['musteri_ekle'])) {
     }
 
 
-    $sql = "SELECT COUNT(*) FROM musteriler ";
+    $sql = "SELECT COUNT(*) FROM users ";
 
     $query = $db->query($sql);
     $row = $query->fetchColumn();

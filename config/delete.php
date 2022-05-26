@@ -8,7 +8,7 @@ $id = $_GET['id'];
 
 // Database de musteriler tablosundan verilen id uzre sil
 
-$sql = "DELETE FROM musteriler WHERE id= '$id'";
+$sql = "DELETE FROM users WHERE id= '$id'";
 
 $query = $db->query($sql);
 $count = $query->rowCount();

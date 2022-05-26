@@ -9,11 +9,11 @@ if (isset($_GET['page'])) {
     $offset = 0;
     $page = 1;
 }
-$sql = "SELECT * FROM musteriler LIMIT $offset, 10"; // ikinci cedvelde database
+$sql = "SELECT * FROM users LIMIT $offset, 10"; // ikinci cedvelde database
 $query = $db->query($sql);  //  de yaddasda olanlara baxmaq ucun
 $data = $query->fetchAll(PDO::FETCH_ASSOC); // Butun bazani cekirik
 
-$sql = "SELECT COUNT(*) FROM musteriler ";
+$sql = "SELECT COUNT(*) FROM users ";
 
 $query = $db->query($sql);
 $say = $query->fetchColumn();
@@ -55,23 +55,23 @@ $pageCount = ceil($say / 10);
             <h4 class="text-center my-3"> Add User </h4>
             <hr> 
 
-            <form action="islem/insert.php" method="POST" enctype="multipart/form-data" autocomplete="off">
+            <form action="config/insert.php" method="POST" enctype="multipart/form-data" autocomplete="off">
                 <table class="table">
                     <td colspan="3"> </td><td> <a align="left" class="btn btn-info" href="index.php"><i class="fa-solid fa-eye"></i> HOME </a> </td>
                     <tr>
-                        <td> User Name :</td><td><input type="text" name="musteri_ad" class="form-control" pattern="[A-Za-z]+"></td>  
+                        <td> User Name :</td><td><input type="text" name="first_name" class="form-control" pattern="[A-Za-z]+"></td>  
                     </tr>
                     <tr>              
-                        <td> User Surname :</td> <td><input type="text" name="musteri_soyad" class="form-control" pattern="[A-Za-z]+"> </td>
+                        <td> User Surname :</td> <td><input type="text" name="last_name" class="form-control" pattern="[A-Za-z]+"> </td>
                     </tr>
                     <tr>
-                        <td> Phone number :</td> <td> <input type="tel" name="musteri_numarasi" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>Format: 123-456-7890</small> </td>
+                        <td> Phone number :</td> <td> <input type="tel" name="phone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>Format: 123-456-7890</small> </td>
                     </tr>
                     <tr>
                         <td> User Photo :</td> <td> <input type="file" accept=".jpg, .png, .gif, .svg" name="image" class="form-control"> </td>
                     </tr>
                     <tr>
-                        <td colspan="3"> </td><td><input type="submit" name="musteri_ekle" class="btn btn-success" > </td>
+                        <td colspan="3"> </td><td><input type="submit" name="add_user" class="btn btn-success" > </td>
                     </tr>
                 </table>
             </form>
