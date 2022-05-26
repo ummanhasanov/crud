@@ -1,5 +1,4 @@
 <?php
-
 include ("conn.php");
 
 if (isset($_GET['page'])) {
@@ -67,9 +66,6 @@ $pageCount = ceil($say / 10);
                     <tr>
                         <td> Phone number :</td> <td> <input type="tel" name="phone" placeholder="Mobile number" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><small>Format: 123-456-7890</small> </td>
                     </tr>
-<!--                    <tr>
-                        <td> User Photo :</td> <td> <input type="file" accept=".jpg, .png, .gif, .svg" name="image" class="form-control"> </td>
-                    </tr>-->
                     <tr>
                         <td colspan="3"> </td><td><input type="submit" name="add_user" class="btn btn-success" > </td>
                     </tr>

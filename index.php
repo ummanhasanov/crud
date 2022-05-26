@@ -117,9 +117,10 @@ $pageCount = ceil($row / 10);
         <div class="container">
 
             <table class="table">
-                <thead> <td colspan="4" > </td> <td><a class="btn btn-primary" href="create.php" > <i class="fa-solid fa-circle-plus"></i> New User </a> </td>
+                <thead> <td colspan="4" > </td> <td></td> <td><a class="btn btn-primary" href="create.php" > <i class="fa-solid fa-circle-plus"></i> New User </a> </td>
                 <tr>
                     <th scope="col">ID</th>
+                    <th scope="col">Photo</th>
                     <th scope="col">User Name</th>
                     <th scope="col">User Surname</th>
                     <th scope="col">Phone number</th>
@@ -131,11 +132,13 @@ $pageCount = ceil($row / 10);
                     <?php foreach ($data as $datas) : ?>
                         <tr>
                             <td> <?php echo $datas['id']; ?> </td>
+                            <td> <img src="<?php echo $datas['photo']; ?>" class="rounded-circle" width="70" height="70" /> </td>
                             <td> <?php echo $datas['first_name']; ?> </td>
                             <td> <?php echo $datas['last_name']; ?> </td>
                             <td> <?php echo $datas['phone']; ?> </td>
                             <td>
-                                <a class="btn btn-success" href="updated.php?id=<?php echo $datas['id']; ?>"> <i class="fa-solid fa-pen"></i> </a>
+                                <a class="btn btn-success" href="profile.php?id=<?php echo $datas['id']; ?>"> <i class="fa-solid fa-image"></i> </a>
+                                <a class="btn btn-primary" href="updated.php?id=<?php echo $datas['id']; ?>"> <i class="fa-solid fa-pen"></i> </a>
                                 <a class="btn btn-danger" href="config/delete.php?id=<?php echo $datas['id']; ?>" onclick="return confirm('Are you sure to delete this user?')"> <i class="fa-solid fa-trash"></i> </a>
                             </td>
                         </tr>
