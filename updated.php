@@ -42,9 +42,9 @@ $data = $query->fetch(PDO::FETCH_ASSOC); //Bazadan bir verini yenileyirik
                     <tr>
                         <td> Phone number :</td> <td> <input type="text" name="phone" class="form-control" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required value="<?php echo $data['phone']; ?>"> <small>Format: 123-456-7890</small></td>
                     </tr>
-                     <tr>
+<!--                     <tr>
                         <td> User Photo :</td> <td> <input type="file" accept=".jpg, .png, .gif, .svg" name="image" class="form-control"> </td>
-                    </tr>
+                    </tr>-->
                     <tr>
                         <td colspan="3"> </td><td><input type="submit" name="user_update" class="btn btn-success" value="Update" > </td>
                     </tr>
